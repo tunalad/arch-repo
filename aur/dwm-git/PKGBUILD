@@ -1,0 +1,38 @@
+pkgname=dwm-git
+_pkgname=dwm
+pkgver=6.4.r0.1a27e0f
+pkgrel=1
+pkgdesc="A dynamic window manager for X"
+url="https://github.com/tunalad/dwm"
+arch=('x86_64')
+license=('MIT')
+options=(zipman)
+depends=('libx11' 'libxinerama' 'libxft' 'ttf-dejavu')
+makedepends=('git')
+install=dwm.install
+provides=('dwm')
+conflicts=('dwm')
+source=(dwm.desktop 
+        "$_pkgname::git+https://github.com/tunalad/dwm"
+        config.h)
+sha256sums=('SKIP' 'SKIP' 'SKIP')
+
+prepare() {
+    cd $_pkgname
+    if [[ -f "$srcdir/config.h" ]]; then
+        cp -fv "$srcdir/config.h" config.h
+    fi
+}
+
+build() {
+    cd $_pkgname
+    make
+}
+
+package() {
+    cd $_pkgname
+    make PREFIX=/usr DESTDIR="$pkgdir" install
+    install -m644 -D docs/LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+    install -m644 -D docs/README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+    install -m644 -D ../dwm.desktop "$pkgdir/usr/share/xsessions/dwm.desktop"
+}
