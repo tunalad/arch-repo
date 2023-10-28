@@ -1,0 +1,41 @@
+<!doctype html>
+<script>
+    fetch("https://api.github.com/repos/tunalad/arch-repo/contents/x86_64")
+        .then((response) => response.json())
+        .then((data) => {
+            const packagesUl = document.createElement("ul");
+            data.forEach((package) => {
+                if (package.name.endsWith(".pkg.tar.zst")) {
+                    const packageLi = document.createElement("li");
+                    const packageLink = document.createElement("a");
+                    packageLink.href = package.html_url;
+                    packageLink.textContent = package.name;
+                    packageLi.appendChild(packageLink);
+                    packagesUl.appendChild(packageLi);
+                }
+            });
+            const packagesDiv = document.getElementById("packages");
+            packagesDiv.appendChild(packagesUl);
+        });
+</script>
+
+<html>
+    <head>
+        <title>tunalad's Arch Packages</title>
+    </head>
+    <body>
+        <h1>📦 tunalad's Arch Packages 📦</h1>
+        <hr />
+
+        <div id="packages"></div>
+    </body>
+</html>
+
+<style>
+    h1 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+</style>
