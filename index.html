@@ -8,7 +8,7 @@
                 if (package.name.endsWith(".pkg.tar.zst")) {
                     const packageLi = document.createElement("li");
                     const packageLink = document.createElement("a");
-                    packageLink.href = package.html_url;
+                    packageLink.href = package.download_url;
                     packageLink.textContent = package.name;
                     packageLi.appendChild(packageLink);
                     packagesUl.appendChild(packageLi);
