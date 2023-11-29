@@ -26,16 +26,25 @@
     <body>
         <h1>📦 tunalad's Arch Packages 📦</h1>
         <hr />
-
+        <p>
+            To add this repository to your own system, add this to your
+            <code>/etc/pacman.conf</code>
+        </p>
+        <code class="language-bash" data-lang="bash">
+            <span style="display: flex"
+                >[tunalad] SigLevel = Optional DatabaseOptional</span
+            >
+            <span style="display: flex"
+                >Server = https://tunalad.github.io/arch-repo/$arch</span
+            >
+        </code>
+        <p>Packages:</p>
         <div id="packages"></div>
     </body>
 </html>
 
 <style>
     h1 {
-        text-align: center;
-    }
-    p {
         text-align: center;
     }
 </style>
