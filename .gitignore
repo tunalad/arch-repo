@@ -1,1 +1,6 @@
 aur/dwm-git/PKGBUILD.old
+pkgbuilds/*/*.tar*
+pkgbuilds/*/pkg
+pkgbuilds/*/src
+pkgbuilds/*/dwm
+pkgbuilds/*/dwl
