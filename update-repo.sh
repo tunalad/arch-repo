@@ -8,7 +8,8 @@ for arch_dir in "${ARCH[@]}"; do
         echo -e "\033[1;32mUPDATING $arch_dir"
         repo-add "$arch_dir/$REPO_NAME.db.tar.gz" "$arch_dir"/*.pkg.tar.zst
         # removing symlinks
-        rm "$arch_dir/$REPO_NAME.db" "$arch_dir/$REPO_NAME.file"
+        rm "$arch_dir/$REPO_NAME.db" 
+        rm "$arch_dir/$REPO_NAME.files"
 
         # renaming archive files to symlink names
         mv "$arch_dir/$REPO_NAME.db.tar.gz" "$arch_dir/$REPO_NAME.db"
