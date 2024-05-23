@@ -23,6 +23,7 @@ clean:
 	rm -rf pkgbuilds/*/src
 	rm -rf pkgbuilds/*/dwm
 	rm -rf pkgbuilds/*/dwl
+	rm -rf pkgbuilds/*/dwl-0.4
 	rm -rf $(ARCH_DIR)/$(REPO_NAME)*
 
 check_db:

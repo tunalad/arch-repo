@@ -1,17 +1,17 @@
-pkgname=dwl
-pkgver=0.5.5ddc72c
-pkgrel=1
+pkgname=dwl-0.4
+pkgver=0.4.c10e6c8
+pkgrel=2
 pkgdesc="dwm for Wayland"
 arch=('x86_64')
-url="https://github.com/tunalad/dwl"
+url="https://github.com/tunalad/dwl-0.4"
 license=('GPL')
 depends=('wlroots0.16')
 makedepends=('git' 'wayland-protocols')
 optdepends=('xorg-xwayland: for XWayland support')
 provides=("${pkgname%-git}")
-conflicts=("${pkgname%-git}")
+conflicts=("${pkgname%-git}" "dwl" "dwl-git")
 # append #branch=wlroots-next to build against wlroots-git
-source=('git+https://github.com/tunalad/dwl'
+source=('git+https://github.com/tunalad/dwl-0.4'
     config.h)
     sha256sums=('SKIP' 'SKIP')
 
@@ -26,8 +26,8 @@ source=('git+https://github.com/tunalad/dwl'
     }
 
     build() {
-        #export CFLAGS="$CFLAGS -I/usr/include/wlroots0.16"
-        #export LDFLAGS="$LDFLAGS -L/usr/lib/wlroots0.16"
+        export CFLAGS="$CFLAGS -I/usr/include/wlroots0.16"
+        export LDFLAGS="$LDFLAGS -L/usr/lib/wlroots0.16"
         cd "$srcdir/${pkgname%-git}"
         make
     }
