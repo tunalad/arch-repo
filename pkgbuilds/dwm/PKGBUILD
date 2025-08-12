@@ -1,6 +1,6 @@
 pkgname=dwm
 _pkgname=dwm
-pkgver=6.5.59f07f2
+pkgver=6.6.51ee769
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="https://github.com/tunalad/dwm"
@@ -12,11 +12,11 @@ makedepends=('git')
 provides=('dwm')
 conflicts=('dwm')
 source=(dwm.desktop
-        "$_pkgname::git+https://github.com/tunalad/dwm"
-        config.h)
+  "$_pkgname::git+https://github.com/tunalad/dwm"
+  config.h)
 sha256sums=('SKIP'
-            'SKIP'
-            'SKIP')
+  'SKIP'
+  'SKIP')
 
 prepare() {
   cd $_pkgname
